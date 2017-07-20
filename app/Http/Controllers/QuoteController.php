@@ -9,6 +9,10 @@ class QuoteController extends Controller
 {
     public function postQuote (Request $request)
     {
+      $this->validate($request, [
+        'content' => 'required|min:10',
+      ]);
+      
       $quote = new Quote();
       $quote->content = $request->input('content');
       $quote->save();
@@ -16,17 +20,27 @@ class QuoteController extends Controller
       return response()->json(['quote' => $quote], 201);
     }
 
-    public function getQuote ()
+    public function getQuotes ()
     {
       $quotes = Quote::all();
       $response = [
         'quotes' => $quotes
       ];
 
-      return response()->json($response, 201);
+      return response()->json($response, 200);
     }
 
-    public function putQuote (Request $request, $id)
+    public function getQuote ($id)
+    {
+      $quote = Quote::find($id);
+      $response = [
+        'quote' => $quote
+      ];
+
+      return response()->json($response, 200);
+    }
+
+    public function updateQuote (Request $request, $id)
     {
       $quote = Quote::find($id);
       if (!$quote) {
