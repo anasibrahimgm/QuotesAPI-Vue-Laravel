@@ -17,3 +17,6 @@ https://github.com/tymondesigns/jwt-auth/wiki/Installation
 07.
   we simply pass the provided token we get when signin
   as a parameter to postman when we want to create a new Quote
+
+08.
+  the middleware has its own messages and it overwrites our Handler.php messages
