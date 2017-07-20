@@ -1,0 +1,15 @@
+when we send the body from postman with duplicated email
+z.B.
+  {
+  "name": "anas",
+  "email": "anas@b.c",
+  "password": "123456"
+  }
+to get the real error that
+      {"email":["The email has already been taken."]}
+ we have to add Headers:
+  Content-Type: application/json
+  X-Requested-With: XMLHttpRequest
+
+
+https://github.com/tymondesigns/jwt-auth/wiki/Installation

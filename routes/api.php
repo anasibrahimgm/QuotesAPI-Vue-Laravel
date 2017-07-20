@@ -17,14 +17,26 @@ Route::post('/quote', [
   'uses' => 'QuoteController@postQuote'
 ]);
 
-Route::get('/quote', [
+Route::get('/quotes', [
+  'uses' => 'QuoteController@getQuotes'
+]);
+
+Route::get('/quote/{id}', [
   'uses' => 'QuoteController@getQuote'
 ]);
 
 Route::put('/quote/{id}',[
-  'uses' => 'QuoteController@putQuote'
+  'uses' => 'QuoteController@updateQuote'
 ]);
 
 Route::delete('/quote/{id}',[
   'uses' => 'QuoteController@deleteQuote'
+]);
+
+Route::post('/user', [
+  'uses' => 'UserController@signup'
+]);
+
+Route::post('/user/signin', [
+  'uses' => 'UserController@signin'
 ]);
