@@ -27,9 +27,14 @@ export default {
 
   methods: {
     submitted() {
-      axios.post("http://vue.app/api/quote", {
+      const token = localStorage.getItem('token');
+      axios.post("http://vue.app/api/quote?token=" + token, {
         content: this.quoteContent
-      })
+      },
+      {
+          headers:{'X-Requested-With' : 'XMLHttpRequest'}
+      }
+      )
       .then(
         (response) => console.log(response)
       ).catch(

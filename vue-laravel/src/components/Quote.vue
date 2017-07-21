@@ -41,7 +41,8 @@ export default {
 
     onDelete() {
       this.$emit('quoteDeleted', this.qt.id);
-      axios.delete("http://vue.app/api/quote/" + this.qt.id)
+      const token = localStorage.getItem('token');
+      axios.delete("http://vue.app/api/quote/" + this.qt.id +"?token=" + token)
       .then(
         response => console.log(response)
       )
@@ -51,7 +52,8 @@ export default {
     },
 
     onUpdate() {
-      axios.put("http://vue.app/api/quote/" + this.qt.id, {
+      const token = localStorage.getItem('token');
+      axios.put("http://vue.app/api/quote/" + this.qt.id +"?token=" + token, {
         content: this.editValue
       })
       .then(
