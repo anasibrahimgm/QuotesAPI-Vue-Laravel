@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="smallApp">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -23,16 +23,12 @@
 <script>
 
 export default {
-  name: 'app',
-  data () {
-    return {
-    }
-  }
+  
 }
 </script>
 
 <style>
-#app {
+#smallApp {
   margin: 30px;
 }
 </style>

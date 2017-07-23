@@ -17,6 +17,24 @@ window.Vue = require('vue');
 
 Vue.component('example', require('./components/Example.vue'));
 
+import App from './App.vue'
+
+// npm install vue-router -save
+import VueRouter from 'vue-router'
+import Routes from './routes'
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  mode: 'history',
+  routes: Routes
+});
+
 const app = new Vue({
-    el: '#app'
+  components: {
+    'myapp': App,
+  },
+    el: '#app',
+    router: router,
+    //render: h => h(App)
 });
