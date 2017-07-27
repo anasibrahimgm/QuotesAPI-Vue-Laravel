@@ -53,6 +53,10 @@ class QuoteController extends Controller
 
     public function updateQuote (Request $request, $id)
     {
+      $this->validate($request, [
+        'content' => 'required|min:10',
+      ]);
+
       $quote = Quote::find($id);
       if (!$quote) {
         return response()->json(['message' => 'Quote Not Found'], 404);

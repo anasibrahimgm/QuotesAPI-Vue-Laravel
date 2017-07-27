@@ -7,7 +7,6 @@
           <router-link to="/signin">SignIn</router-link>
           <br />
           <router-link to="/">Quotes</router-link> |
-          <router-link to="/new-quote">New Quote</router-link>
         </div>
       </div>
       <hr />
@@ -23,7 +22,7 @@
 <script>
 
 export default {
-  
+
 }
 </script>
 

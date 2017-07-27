@@ -17,7 +17,7 @@ class UserSignUpRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:vue_users',
-            'password' => 'required',
+            'password' => 'required|min:6',
         ];
     }
 }

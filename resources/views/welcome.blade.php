@@ -8,6 +8,13 @@
         <title>Laravel</title>
 
         <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+        <script>
+          window.Laravel = {!! json_encode([
+              'csrfToken' => csrf_token(),
+                  ]) !!};
+        </script>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body>
         <div class="flex-center position-ref full-height">
