@@ -6,7 +6,7 @@
           <router-link to="/signup">SignUp</router-link> |
           <router-link to="/signin">SignIn</router-link>
           <br />
-          <router-link to="/">Quotes</router-link> |
+          <router-link to="/">Quotes</router-link>
         </div>
       </div>
       <hr />

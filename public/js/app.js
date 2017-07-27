@@ -42383,7 +42383,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "to": "/"
     }
-  }, [_vm._v("Quotes")]), _vm._v(" |\n      ")], 1)]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('div', {
+  }, [_vm._v("Quotes")])], 1)]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
     staticClass: "col-md-12"
