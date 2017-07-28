@@ -1,6 +1,10 @@
 <template>
   <div>
     <form @submit.prevent="submitted">
+      <div class="alert alert-warning" role="alert" v-show="notAuthorizedError">
+        <strong>Warning!</strong> {{ notAuthorizedError }}
+      </div>
+
       <div class="form-group">
         <label for="content">Content</label>
         <input
@@ -9,6 +13,9 @@
               class="form-control"
               v-model="quoteContent"
         />
+        <span class="help-block has-error" v-show="contentError">
+            <strong>{{ contentError }}</strong>
+        </span>
       </div>
       <button class="btn btn-primary" type="submit">Submit</button>
     </form>
@@ -24,18 +31,18 @@
 <script>
 import axios from 'axios';
 import Quote from './Quote.vue';
-import newQuote from './newQuote.vue';
 
 export default {
   components: {
     'app-quote': Quote,
-    'new-quote': newQuote,
   },
 
   data() {
     return {
       quotes: [],
       quoteContent: '',
+      contentError: '',
+      notAuthorizedError: '',
     }
   },
 
@@ -63,9 +70,20 @@ export default {
              // The request was made and the server responded with a status code
              // that falls out of the range of 2xx
              console.log(error.response.data);
+             if (error.response.data.content)
+             {
+               this.contentError = error.response.data.content[0];
+             }
 
              console.log("Error 2");
              console.log(error.response.status);
+
+             if (error.response.status){
+               if ( error.response.status == 401)
+               {
+                 this.notAuthorizedError = 'You have to Login to Create new Quotes';
+               }
+             }
 
              console.log("Error 3");
              console.log(error.response.headers);
